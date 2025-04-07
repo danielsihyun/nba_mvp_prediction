@@ -1,8 +1,3 @@
-|*********************************|
-|PROJECT: MVP Prediction Algorithm|
-|*********************************|
-
-
 ## Directory and File Description
 
 This project has the following directories: /data_ingest, /etl_code, /profiling_code, /data, and /ana_code.
