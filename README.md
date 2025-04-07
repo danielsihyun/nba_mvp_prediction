@@ -110,10 +110,9 @@ Step 1: Getting and loading the data and files
             Advanced Statistics: https://www.nba.com/stats/players/advanced
             INSTRUCTIONS: Highlight table and copy paste into an excel sheet to download as a csv (do for all pages)
         NOTE: Do for all season for training as well as the season you want to test out! (WE trained on 2019-2022 to test the current season's stats)
-    
-    Once you have these loaded, it is important that you name the files like shown in the ./data/raw folder
-    To upload these files, simply upload like usual and use the 'hdfs dfs -put myFile.csv' file (replacing myFile.csv with desired file) to load into hadoop filesystem
-    Once completed, do the same for all .scala files included in all directories
+        Once you have these loaded, it is important that you name the files like shown in the ./data/raw folder
+        To upload these files, simply upload like usual and use the 'hdfs dfs -put myFile.csv' file (replacing myFile.csv with desired file) to load into hadoop filesystem
+        Once completed, do the same for all .scala files included in all directories
 
 Step 2: Cleaning and Saving Cleaned Data 
     Start your spark shell by using the 'spark-shell --deploy-mode client' command
@@ -125,23 +124,18 @@ Step 2: Cleaning and Saving Cleaned Data
         Once finished running BOTH of the files above, run the files in the ./etl_code and ./profiling_code folder folder associated with nba.com in this order:
             1. cleaning_nba.com.scala
             2. data_profiling.nba.scala
-    
     Once finished, exit scala and download the cleaned data as instructed below:
-
     INSTRUCTIONS FOR DOWNLOAD AND STORAGE OF EACH CLEANED DATASET:
         Since we are running on spark scala, each output will be stored as a colleciton of files under a folder named after the desired .csv file 
         For each dataset, download the associated file using 'hdfs dfs -getmerge myFile1.csv myFile.csv' (replacing myFile.csv with desired file)
             myFile1.csv is the directory that the data was saved to and myFile.csv is what you want to merge the file as.
             This merges the outputfiles into a csv named whatever you put into myFile.csv and saves it into your local directory on dataproc
-
         These are the files you will need, which are the same name as the folders where the distributed csvs will be held:
             bbref_cleaned_test.csv
             bbref_cleaned_train.csv
             cleaned_data_test.csv
             cleaned_data_train.csv
-
         For example, you would use 'hdfs dfs -getmerge bbref_cleaned_test1.csv bbref_cleaned_test.csv'.
-    
     Once finished, download the files into your local filesystem using the dataproc UI 
 
 Step 3: Loading the Cleaned Data and Running the model!
@@ -150,7 +144,6 @@ Step 3: Loading the Cleaned Data and Running the model!
         Make sure you're loading the 4 files above, they should not have the 1 in the name.
     Double check that both .scala files in the ./ana_code folder are loaded into your hdfs before continuing
     Restart your spark shell as you did above in step 2 (spark-shell --deploy-mode client)
-
     Once in the spark shell, run the file merge_cleaning.csv in the ./etl_code directory with ':load merge_cleaning.scala' to merge the cleaned data from the two datasources for use in the model
     Make sure to change the directory path in the file to whoever is running it, not dl4457/mfd9268.
     After that finishes running, finally run our model using the ':load regression_analytics.scala' command to train and exexute our model
