@@ -62,7 +62,7 @@ This project has the following directories: /data_ingest, /etl_code, /profiling_
         data_profiling_bbref.scala
 
 
-## How we built our project
+## How this project was built
 
 Part 1: Idea Generation 
     Because we were both had a keen interest in basketball and the debates surrounding the sport, we knew we were going in that direction from the outset. One of the hotly contested debates 
@@ -99,7 +99,7 @@ This year, our model predicts that Nikola Jokic will be the MVP.
 ## Steps to Replicate Analysis
 
 Step 1: Getting and loading the data and files 
-    The first step to replicate our data analytic is to download the data from theses sources 
+    The first step to replicate our data analytic is to download the data from these sources (Use whatever year you're trying to predict for)
         Basketball Reference
             Advanced Statistics: https://www.basketball-reference.com/leagues/NBA_2024_advanced.html
             Per Game Statistics: https://www.basketball-reference.com/leagues/NBA_2024_per_game.html
